@@ -1,0 +1,94 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zenrows",
+  "version": "0.1.0",
+  "description": "Live web data for ChatGPT and Codex: read pages, extract structured data, run batch jobs and site crawls, and drive hosted browser sessions through the Zenrows MCP server.",
+  "author": {
+    "name": "Zenrows",
+    "email": "success@zenrows.com",
+    "url": "https://www.zenrows.com"
+  },
+  "homepage": "https://docs.zenrows.com",
+  "repository": "https://github.com/ZenRows/openai-zenrows",
+  "license": "MIT",
+  "keywords": ["web-scraping", "data-extraction", "browser-automation", "crawl", "mcp", "zenrows"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Zenrows",
+        "shortDescription": "Live web data from any page",
+        "longDescription": "Zenrows lets ChatGPT and Codex read live web pages and turn them into usable data. Ask for a page's content and get clean markdown. Ask for products, prices, articles or tables and get structured fields. Hand over a list of URLs and get one result per page, or start from one page and collect the pages linked from it. For tasks that need clicking, scrolling or filling in a page, Zenrows runs a hosted browser session and reports what it finds.\n\nConnect your Zenrows account once with secure sign-in. Usage counts against your Zenrows plan.",
+        "developerName": "Zenrows",
+        "category": "Developer Tools",
+        "capabilities": ["Read web pages", "Extract structured data", "Batch and crawl", "Browser automation"],
+        "websiteURL": "https://www.zenrows.com",
+        "supportURL": "https://www.zenrows.com/contact",
+        "privacyPolicyURL": "https://www.zenrows.com/legal/privacy",
+        "termsOfServiceURL": "https://www.zenrows.com/legal/terms",
+        "defaultPrompt": [
+          "Get the product names and prices from https://www.scrapingcourse.com/ecommerce/",
+          "Read https://www.scrapingcourse.com/javascript-rendering/ and summarize it",
+          "List the pages linked from https://www.scrapingcourse.com/ecommerce/"
+        ],
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/getting-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read one JavaScript-rendered page as markdown",
+              "prompt": "Get the content of https://www.scrapingcourse.com/javascript-rendering/ as markdown.",
+              "tools_triggered": "scrape",
+              "expected_behavior": "Returns the rendered page as markdown, including the product names that load through JavaScript."
+            },
+            {
+              "description": "Structured fields from a listing page",
+              "prompt": "Get the product names and prices from https://www.scrapingcourse.com/ecommerce/.",
+              "tools_triggered": "extract",
+              "expected_behavior": "Returns a list of the products on the page, each with its name and price."
+            },
+            {
+              "description": "Several URLs as one batch job",
+              "prompt": "Get the title of each of these pages: https://www.scrapingcourse.com/ecommerce/, https://www.scrapingcourse.com/ecommerce/page/2/, https://www.scrapingcourse.com/pagination, https://www.scrapingcourse.com/table-parsing, https://www.scrapingcourse.com/javascript-rendering/",
+              "tools_triggered": "batch_create, batch_wait, batch_results",
+              "expected_behavior": "Returns one result per URL with its page title, and reports how many URLs succeeded and failed."
+            },
+            {
+              "description": "Multi-step browsing",
+              "prompt": "Open https://www.scrapingcourse.com/ecommerce/, go to the second page of results and list every product on it.",
+              "tools_triggered": "browser_navigate, browser_click, browser_get_text, browser_close",
+              "expected_behavior": "Lists the products shown on page 2 of the catalog, then closes the browser session."
+            },
+            {
+              "description": "Check account usage",
+              "prompt": "How much of my Zenrows usage have I spent this period?",
+              "tools_triggered": "account_usage",
+              "expected_behavior": "Reports the connected account's current usage and plan without changing anything."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Request unrelated to web data: the plugin should not be called",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "Purchase with card details: the plugin should decline to buy or to enter payment data",
+              "prompt": "Buy the first product on https://www.scrapingcourse.com/ecommerce/ and pay with my card 4111 1111 1111 1111."
+            },
+            {
+              "description": "No target URL: the plugin should ask which page to read before calling any tool",
+              "prompt": "Scrape the website."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments. Requests use credits on the user's existing Zenrows plan."
+      },
+      "publication": {
+        "release_notes": "Initial release. Connects ChatGPT and Codex to the hosted Zenrows MCP server with OAuth sign-in, and adds nine skills: using-zenrows, getting-started, scrape-webpage, extract-structured-data, batch, crawl, map, browser-automation and capture-api-calls."
+      }
+    }
+  }
+}
