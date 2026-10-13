@@ -79,7 +79,7 @@ Reads the connected account's plan and usage. It changes nothing.
 - `AUTH004` (the account's credit allowance is spent) or `AUTH014` (this API key reached its credit cap): a plan limit, not a sign-in problem. Reconnecting doesn't clear it. Tell the user; they can check their usage and plan in the Zenrows dashboard, or raise the key's cap.
 - `AUTH006`: too many requests are running at once. Wait for running requests to finish, then retry.
 - `413`: the response is too large. Narrow it with `css_extractor`.
-- `AUTH010` or `REQS007` from `extract`: Extract isn't enabled or prepared for that domain. `fallback_autoparse` (on by default) retries with autoparse. Surface the error only if the user asked for strict extraction.
+- `REQS007` (or the older `AUTH010`) from `extract`: Extract hasn't prepared that domain yet. `fallback_autoparse` (on by default) retries with autoparse. Surface the error only if the user asked for strict extraction.
 - Look up any other error code at https://docs.zenrows.com.
 
 ## Concurrency

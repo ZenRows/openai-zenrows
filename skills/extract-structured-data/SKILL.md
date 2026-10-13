@@ -22,7 +22,7 @@ Use the dedicated `extract` tool, not `scrape`. It returns structured JSON direc
 ## Two traps
 
 - **`mode` selects the extraction strategy** (`auto`, `autoparse`, `css`). It is not the adaptive request setting, which is the separate boolean `mode_auto` and is on by default. `scrape` has no `mode` parameter at all.
-- **`extract` with `mode='auto'` is in open beta and gated by domain.** On a domain that isn't enabled or prepared, the call returns `AUTH010` or `REQS007`. `fallback_autoparse` defaults to `true`, which retries once with autoparse. Leave it on unless the user wants the failure surfaced.
+- **`extract` with `mode='auto'` works on any domain Zenrows has prepared, with any API key.** There is no per-account gate. On a domain that isn't prepared yet the call returns `REQS007` (or the older `AUTH010`). `fallback_autoparse` defaults to `true`, which retries once with autoparse. Leave it on unless the user wants the failure surfaced. A domain can be prepared on request: see https://docs.zenrows.com/extract/setup#domain-coverage.
 
 ## When to use `scrape` instead
 
