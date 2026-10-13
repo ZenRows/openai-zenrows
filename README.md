@@ -38,7 +38,7 @@ The package follows OpenAI's [plugin package format](https://developers.openai.c
 
 ```
 node scripts/validate.mjs    # checks the documented submission limits
-./scripts/package.sh         # validates, then builds dist/zenrows-<version>.zip
+bash scripts/package.sh      # validates, then builds dist/zenrows-<version>.zip
 ```
 
 `scripts/validate.mjs` encodes the limits from OpenAI's [manifest field reference](https://developers.openai.com/plugins/deploy/submission#automatically-provide-submission-and-review-information) and [submission error reference](https://developers.openai.com/plugins/deploy/submission-errors). CI runs it on every push.
