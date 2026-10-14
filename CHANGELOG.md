@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- The `extract` skills no longer describe Extract as a beta or as gated by domain.
+
 ## 0.1.1
 
 - Review cases checked against the live MCP server on 2026-10-13. Case 1 read `scrapingcourse.com/javascript-rendering/`, which `scrape` returns as an "Enable JavaScript" placeholder with default settings; it now reads `/table-parsing`, which returns its full table. Case 3 expected page titles, which `batch_results` doesn't return (it returns a status and a download link per URL); it now expects per-URL status.
