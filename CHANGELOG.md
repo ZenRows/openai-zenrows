@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Review case 4 read page 2 of `/ecommerce/`, which has its own URL, so ChatGPT answered it with `scrape` and never opened a browser session. It now uses `/button-click`, where the answer only appears after clicking Load more.
+- Review case 2 names what a correct answer contains: the 16 products on the page, from Abominable Hoodie ($69.00) to Artemis Running Short ($45.00).
+
 ## 0.1.2
 
 - The `extract` skills no longer describe Extract as a beta or as gated by domain.
