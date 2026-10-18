@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Review case 2 asks for the first page of `/ecommerce/` only. Run in Codex on 2026-10-18, the old prompt ("from https://www.scrapingcourse.com/ecommerce/") called `extract` as expected, then walked all 12 catalog pages: about 30 `extract` calls, 1 min 46 s, 188 products in a CSV, with two pages needing a retry. A reviewer comparing that against "the 16 products on the page" would see a different result each run.
+
 ## 0.1.3
 
 - Review case 4 read page 2 of `/ecommerce/`, which has its own URL, so ChatGPT answered it with `scrape` and never opened a browser session. It now uses `/button-click`, where the answer only appears after clicking Load more.
