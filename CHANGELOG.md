@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- The three starter prompts start with "Use Zenrows to", like the positive review cases. In ChatGPT on 2026-10-19, "List the pages linked from https://www.scrapingcourse.com/ecommerce/" read the Map and Crawl skills, then answered from web search without calling a Zenrows tool.
+
 ## 0.1.5
 
 - Review case 3 expects `batch_create` only. In ChatGPT on 2026-10-19, `batch_create` waited for the job to finish and returned its counts (5 successful, 0 failed), so ChatGPT answered without calling `batch_results`, which the case required. `batch_status`, `batch_wait` and `batch_results` stay acceptable follow-ups.
