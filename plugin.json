@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "zenrows",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Live web data for ChatGPT and Codex: read pages, extract structured data, run batch jobs and site crawls, and drive hosted browser sessions through the Zenrows MCP server.",
   "author": {
     "name": "Zenrows",
@@ -26,9 +26,9 @@
         "privacyPolicyURL": "https://www.zenrows.com/legal/privacy",
         "termsOfServiceURL": "https://www.zenrows.com/legal/terms",
         "defaultPrompt": [
-          "Get the product names and prices shown on the first page of https://www.scrapingcourse.com/ecommerce/",
-          "Which products are out of stock on https://www.scrapingcourse.com/table-parsing?",
-          "List the pages linked from https://www.scrapingcourse.com/ecommerce/"
+          "Use Zenrows to get the product names and prices shown on the first page of https://www.scrapingcourse.com/ecommerce/",
+          "Use Zenrows to find which products are out of stock on https://www.scrapingcourse.com/table-parsing",
+          "Use Zenrows to list the pages linked from https://www.scrapingcourse.com/ecommerce/"
         ],
         "composerIcon": "./assets/logo.png",
         "logo": "./assets/logo.png"
