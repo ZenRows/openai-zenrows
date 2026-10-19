@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Review case 3 expects `batch_create` only. In ChatGPT on 2026-10-19, `batch_create` waited for the job to finish and returned its counts (5 successful, 0 failed), so ChatGPT answered without calling `batch_results`, which the case required. `batch_status`, `batch_wait` and `batch_results` stay acceptable follow-ups.
+
 ## 0.1.4
 
 Review cases run in Codex (ChatGPT desktop) on 2026-10-18, each in a new chat, against mcp.zenrows.com 2.12.0.
