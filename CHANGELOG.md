@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- `review.demo_recording_url` points to the demo video, which OpenAI requires for plugins with an MCP server. The video runs the 8 review cases in ChatGPT on 0.1.6.
+- The long description no longer ends with "Usage counts against your Zenrows plan.". The portal flagged it under "Remove pricing, subscription offers, and temporary promotions from the description."
+- The release notes describe the plugin instead of the 0.1.2 change to the `extract` skill.
+
 ## 0.1.6
 
 - The three starter prompts start with "Use Zenrows to", like the positive review cases. In ChatGPT on 2026-10-19, "List the pages linked from https://www.scrapingcourse.com/ecommerce/" read the Map and Crawl skills, then answered from web search without calling a Zenrows tool.
