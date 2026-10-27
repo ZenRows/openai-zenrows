@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.8
+
+- The `extract` skills no longer say `fallback_autoparse` retries with autoparse: it has had no effect since the Zenrows MCP server removed that fallback. They now handle `REQS007` by its `reason`: `domain_not_prepared` (prepare the domain with `prepare_domain`, then wait for `prepared_domain_status`), `page_not_recognised` and `domain_not_enabled`. `mode='autoparse'` is marked deprecated, and `include_html` is listed.
+
 ## 0.1.7
 
 - `review.demo_recording_url` points to the demo video, which OpenAI requires for plugins with an MCP server. The video runs the 8 review cases in ChatGPT on 0.1.6.
